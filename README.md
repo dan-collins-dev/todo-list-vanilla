@@ -1,0 +1,2 @@
+# Todo App (Vanilla HTML/CSS/JS)
+This mini-project is centered around building a simple todo app. The goal is to build out the app without any front-end frameworks, then rebuild the same project with a front-end framework to learn the basics.
