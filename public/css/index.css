@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Ubuntu";
+    src: url(../assets/Ubuntu-Regular.ttf);
+}
+
+*:not(dialog) {
+    padding: 0;
+    margin: 0;
+    font-family: "Ubuntu";
+}
+
+.header {}
+.header__name {}
+.header__add-btn {}
+.todos {}
+.todo {}
+.todo__name {}
+.todo__due-date {}
+.todo__priority {}
+.todo__btns {}
+.todo__btns__edit-btn {}
+.todos__btns__delete-btn {}
