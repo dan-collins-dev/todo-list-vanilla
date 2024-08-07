@@ -8,31 +8,34 @@
     </head>
     <body>
         <header class="header">
-            <p class="header__name">Todo</p>
-            <button class="header__add-btn">Add Todo</button>
+            <p class="header__name">// Todo</p>
+            <button class="header__add-btn">+ Add Todo</button>
         </header>
 
         <main>
             <section class="todos">
                 <article class="todo">
-                    <p class="todo__name">Task Name</p>
-                    <input type="date" class="todo__due-date" disabled />
-                    <p class="todo__priority">Priority</p>
+                    <p class="todo__name" id="todo-name">Do the dirty dishes</p>
+                    <p class="todo__due-date" id="todo-due-date">10/10/2010</p>
+                    <div class="todo__priority-pill">
+                        <p class="todo__priority">Low</p>
+                    </div>
+
+                    <div class="todo__priority-pill">
+                        <p class="todo__priority">Medium</p>
+                    </div>
+
+                    <div class="todo__priority-pill">
+                        <p class="todo__priority">High</p>
+                    </div>
+
                     <article class="todo__btns">
                         <button class="todos__btns__edit-btn">Edit</button>
                         <button class="todos__btns__delete-btn">Delete</button>
                     </article>
                 </article>
 
-                <article class="todo">
-                    <p class="todo__name">Task Name</p>
-                    <input type="date" class="todo__due-date" />
-                    <p class="todo__priority">Priority</p>
-                    <article class="todo__btns">
-                        <button class="todos__btns__edit-btn">Edit</button>
-                        <button class="todos__btns__delete-btn">Delete</button>
-                    </article>
-                </article>
+                
             </section>
         </main>
 
