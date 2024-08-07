@@ -1,12 +1,13 @@
 @font-face {
     font-family: "Ubuntu";
     src: url(../assets/Ubuntu-Regular.ttf);
+    font-display: swap;
 }
 
 *:not(dialog) {
     padding: 0;
     margin: 0;
-    font-family: "Ubuntu";
+    font-family: "Ubuntu", sans-serif;
     box-sizing: border-box;
 }
 
@@ -24,7 +25,7 @@
 
 .header__add-btn {
     margin: 0 0 0 auto;
-    padding: .25rem;
+    padding: .5rem;
     border:none;
     border-radius: .25rem;
     background-color: green;
@@ -48,9 +49,17 @@
     gap: 1rem;
 }
 
+.todo__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: .5rem;
+}
+
 .todo__name {}
 
-.todo__due-date {}
+.todo__due-date {
+    justify-self: end;
+}
 
 .todo__priority-pill {
     display: flex;
@@ -59,6 +68,21 @@
     width: 5rem;
     justify-content: center;
     border-radius: 1rem;
+    grid-column: 2;
+    justify-self: end;
+    margin-top: .5rem;
+}
+
+.todo__priority-pill--low {
+    background-color: rgb(111, 111, 221);
+}
+
+.todo__priority-pill--med {
+    background-color: rgb(247, 176, 52);
+}
+
+.todo__priority-pill--high {
+    background-color: rgb(250, 115, 115);
 }
 
 .todo__priority {}
@@ -67,6 +91,7 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    margin-top: .5rem;
 }
 
 .todos__btns__edit-btn {
