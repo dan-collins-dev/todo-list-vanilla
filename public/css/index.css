@@ -110,3 +110,23 @@
     background-color: red;
     font-weight: bolder;
 }
+
+.add-modal {
+    border: none;
+    padding: 0;
+}
+
+.add-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.add-modal__header {
+    background-color: blue;
+    padding: 1rem 0;
+}
+
+.add-modal__header__title {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
