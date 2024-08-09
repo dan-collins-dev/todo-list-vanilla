@@ -11,8 +11,9 @@ const addButton = document.querySelector(".header__add-btn");
 addButton.addEventListener("click", (e) => {
     const addModal = document.querySelector(".add-modal");
     addModal.showModal();
-    // Opens Modal
+
     // User Enters required info
+    const name = document.querySelector(".add-modal__form__name-input");
     // User saves todo
     // todo card created and added to the DOM
 })

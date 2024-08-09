@@ -8,7 +8,7 @@
     padding: 0;
     margin: 0;
     font-family: "Ubuntu", sans-serif;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 .header {
@@ -114,19 +114,64 @@
 .add-modal {
     border: none;
     padding: 0;
+    border-radius: .25rem;
 }
 
 .add-modal::backdrop {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.add-modal__header {
+.add-modal__header__title {
     background-color: blue;
     padding: 1rem 0;
-}
-
-.add-modal__header__title {
     color: white;
     font-weight: bold;
     text-align: center;
+}
+
+.add-modal__form {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem .25rem;
+}
+
+.add-modal__form__name {}
+
+.add-modal__form__name-input {
+    margin-bottom: .5rem;
+    width: auto;
+}
+
+.add-modal__form__due-date {}
+
+.add-modal__form__due-date-input {
+    margin-bottom: .5rem;
+}
+
+.add-modal__form__priority-input {
+    margin-bottom: .5rem;
+}
+
+.add-modal__btn-wrapper {
+    background-color: white;
+    color: white;
+    padding: .25rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.add_modal__cancel_btn {
+    background-color: red;
+    color: black;
+    border: none;
+    border-radius: .25rem;
+    padding: .5rem;
+}
+
+.add_modal__create_btn {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: .25rem;
+    padding: .5rem;
 }

@@ -49,6 +49,24 @@
             <form action="#" class="add-modal__form">
                 <label for="add-form-name" class="add-modal__form__name">Todo Name</label>
                 <input type="text" class="add-modal__form__name-input" id="add-form-name" maxlength="15" required>
+
+                <label for="add-form-due-date" class="add-modal__form__due-date">Due Date</label>
+                <input type="date" class="add-modal__form__due-date-input" id="add-form-due-date">
+
+                <label for="add-form-priority">Priority</label>
+                <select class="add-modal__form__priority-input" id="add-form-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <section class="add-modal__btn-wrapper">
+                    <button class="add_modal__cancel_btn">
+                        Cancel
+                    </button>
+                    <button class="add_modal__create_btn">
+                        Create
+                    </button>
+                </section>
             </form>
         </dialog>
 
