@@ -7,10 +7,6 @@ This mini-project is centered around building a simple todo app. The goal is to 
 - Each Todo has CRUD actions
 - Filter by Todo Name
 
-## Stretch Goals
-- Filter and Sort by due date (ascending and descending)
-- Filer by Sort by priority (ascending and descending)
-
 ## Running this project
 1. Clone the repo into a directory of your choice.
 2. CD into the directory

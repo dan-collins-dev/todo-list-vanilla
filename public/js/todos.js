@@ -74,6 +74,12 @@ const createBtns = () => {
         );
 
         console.log(index);
+
+        let todos = JSON.parse(localStorage.getItem("todos"))
+        todos.splice(index, 1)
+        localStorage.setItem("todos", JSON.stringify(todos))
+
+        todosContainer.removeChild(elementToBeRemoved)
     });
 
     btnArticle.appendChild(editBtn);
@@ -82,7 +88,19 @@ const createBtns = () => {
     return btnArticle;
 };
 
-export const createTodoCard = (name, date, priority) => {
+export const createTodoCard = (name, date, priority, createEntry = false) => {
+    if (createEntry === true) {
+        if (localStorage.getItem("todos") === null) {
+            let todos = [];
+            todos.push({ name: name, dueDate: date, priority: priority });
+            localStorage.setItem("todos", JSON.stringify(todos));
+        } else {
+            let todos = JSON.parse(localStorage.getItem("todos"));
+            todos.push({ name: name, dueDate: date, priority: priority });
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+    }
+
     const todoCard = document.createElement("article");
     todoCard.classList.add("todo");
 

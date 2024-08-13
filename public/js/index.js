@@ -6,14 +6,16 @@ const addBtn = document.querySelector(".header__add-btn");
 const cancelBtn = document.querySelector(".add_modal__cancel_btn");
 const createBtn = document.querySelector(".add_modal__create_btn");
 
+const loadTodos = () => {
+    if (localStorage.getItem("todos") === null) {
+        return;
+    }
 
-const deleteTodoCard = () => {};
-
-const updateTodoCard = () => {};
-
-const addToStorage = () => {};
-
-const removeFromStorage = () => {};
+    let todos = JSON.parse(localStorage.getItem("todos"));
+    todos.forEach((todo) => {
+        createTodoCard(todo.name, todo.dueDate, todo.priority);
+    });
+};
 
 addBtn.addEventListener("click", (e) => {
     const addModal = document.querySelector(".add-modal");
@@ -30,7 +32,7 @@ cancelBtn.addEventListener("click", (e) => {
     name.value = "";
     dueDate.value = "";
     priority.value = "";
-    
+
     addModal.close();
 });
 
@@ -45,7 +47,7 @@ createBtn.addEventListener("click", (e) => {
     if (name.value !== "" && dueDate.value !== "" && priority.value !== "") {
         e.preventDefault();
         // Quick check for values and types (remove later)
-        createTodoCard(name.value, dueDate.value, priority.value)
+        createTodoCard(name.value, dueDate.value, priority.value, true);
         name.value = "";
         dueDate.value = "";
         priority.value = "";
@@ -53,3 +55,5 @@ createBtn.addEventListener("click", (e) => {
         addModal.close();
     }
 });
+
+loadTodos();
