@@ -19,12 +19,7 @@ const createPriorityPill = (priority) => {
     const pillText = document.createElement("p");
     pillText.classList.add("todo__priority");
 
-    const word = priority;
-    const firstLetter = word.charAt(0).toUpperCase();
-    const remainingLetters = word.slice(1);
-    const formattedWord = firstLetter + remainingLetters;
-
-    pillText.innerText = formattedWord;
+    pillText.innerText = priority.slice(0, 1).toUpperCase() + priority.slice(1);
 
     pill.appendChild(pillText);
 
