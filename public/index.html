@@ -63,6 +63,35 @@
             </form>
         </dialog>
 
+        <dialog class="edit-modal">
+            <section class="edit-modal__header">
+                <p class="edit-modal__header__title">Edit Todo</p>
+            </section>
+            <form action="#" class="edit-modal__form">
+                <label for="edit-form-name" class="edit-modal__form__name">Todo Name</label>
+                <input type="text" class="edit-modal__form__name-input" id="edit-form-name" maxlength="15" required>
+
+                <label for="edit-form-due-date" class="edit-modal__form__due-date">Due Date</label>
+                <input type="date" class="edit-modal__form__due-date-input" id="edit-form-due-date"  required>
+
+                <label for="edit-form-priority">Priority</label>
+                <select class="edit-modal__form__priority-input" id="edit-form-priority" required>
+                    <option value=""></option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <section class="edit-modal__btn-wrapper">
+                    <button class="edit_modal__cancel_btn">
+                        Cancel
+                    </button>
+                    <button class="edit_modal__create_btn">
+                        Create
+                    </button>
+                </section>
+            </form>
+        </dialog>
+
         <script type="module" src="./js/index.js" ></script>
     </body>
 </html>

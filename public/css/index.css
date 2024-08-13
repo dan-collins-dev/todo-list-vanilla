@@ -113,17 +113,17 @@
     font-weight: bolder;
 }
 
-.add-modal {
+.add-modal, .edit-modal {
     border: none;
     padding: 0;
     border-radius: 0.25rem;
 }
 
-.add-modal::backdrop {
+.add-modal::backdrop, .edit-modal::backdrop {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.add-modal__header__title {
+.add-modal__header__title, .edit-modal__header__title {
     background-color: blue;
     padding: 1rem 0;
     color: white;
@@ -131,32 +131,32 @@
     text-align: center;
 }
 
-.add-modal__form {
+.add-modal__form, .edit-modal__form {
     display: flex;
     flex-direction: column;
     margin: 0.5rem 0.25rem;
 }
 
-.add-modal__form__name {
+.add-modal__form__name, .edit-modal__form__name {
 }
 
-.add-modal__form__name-input {
+.add-modal__form__name-input, .edit-modal__form__name-input {
     margin-bottom: 0.5rem;
     width: auto;
 }
 
-.add-modal__form__due-date {
+.add-modal__form__due-date, .edit-modal__form__due-date {
 }
 
-.add-modal__form__due-date-input {
+.add-modal__form__due-date-input, .edit-modal__form__due-date-input  {
     margin-bottom: 0.5rem;
 }
 
-.add-modal__form__priority-input {
+.add-modal__form__priority-input, .edit-modal__form__priority-input {
     margin-bottom: 0.5rem;
 }
 
-.add-modal__btn-wrapper {
+.add-modal__btn-wrapper, .edit-modal__btn-wrapper {
     background-color: white;
     color: white;
     padding: 0.25rem;
@@ -164,7 +164,7 @@
     justify-content: space-evenly;
 }
 
-.add_modal__cancel_btn {
+.add_modal__cancel_btn, .edit_modal__cancel_btn {
     background-color: red;
     color: black;
     border: none;
@@ -172,7 +172,7 @@
     padding: 0.5rem;
 }
 
-.add_modal__create_btn {
+.add_modal__create_btn, .edit_modal__create_btn {
     background-color: green;
     color: white;
     border: none;
