@@ -164,7 +164,7 @@
     justify-content: space-evenly;
 }
 
-.add_modal__cancel_btn, .edit_modal__cancel_btn {
+.add-modal__cancel-btn, .edit-modal__cancel-btn {
     background-color: red;
     color: black;
     border: none;
@@ -172,7 +172,7 @@
     padding: 0.5rem;
 }
 
-.add_modal__create_btn, .edit_modal__create_btn {
+.add-modal__create-btn, .edit-modal__save-btn {
     background-color: green;
     color: white;
     border: none;

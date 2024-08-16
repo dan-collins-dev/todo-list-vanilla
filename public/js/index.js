@@ -1,10 +1,18 @@
 "use strict";
 
-import { createTodoCard } from "./todos.js";
+import { createTodoCard} from "./todos.js";
 
 const addBtn = document.querySelector(".header__add-btn");
-const cancelBtn = document.querySelector(".add_modal__cancel_btn");
-const createBtn = document.querySelector(".add_modal__create_btn");
+const cancelBtnAM = document.querySelector(".add-modal__cancel-btn");
+const createBtnAM = document.querySelector(".add-modal__create-btn");
+const cancelBtnEM = document.querySelector(".edit-modal__cancel-btn");
+const saveBtnEM = document.querySelector(".edit-modal__save-btn")
+const editModal = document.querySelector(".edit-modal")
+
+// editModal.addEventListener("edit", (e) => {
+//     console.log("You")
+//     editModal.showModal();
+// })
 
 const loadTodos = () => {
     if (localStorage.getItem("todos") === null) {
@@ -22,7 +30,7 @@ addBtn.addEventListener("click", (e) => {
     addModal.showModal();
 });
 
-cancelBtn.addEventListener("click", (e) => {
+cancelBtnAM.addEventListener("click", (e) => {
     e.preventDefault();
     const name = document.querySelector(".add-modal__form__name-input");
     const dueDate = document.querySelector(".add-modal__form__due-date-input");
@@ -36,7 +44,21 @@ cancelBtn.addEventListener("click", (e) => {
     addModal.close();
 });
 
-createBtn.addEventListener("click", (e) => {
+cancelBtnEM.addEventListener("click", (e) => {
+    e.preventDefault();
+    const name = document.querySelector(".add-modal__form__name-input");
+    const dueDate = document.querySelector(".add-modal__form__due-date-input");
+    const priority = document.querySelector(".add-modal__form__priority-input");
+    const addModal = document.querySelector(".add-modal");
+
+    name.value = "";
+    dueDate.value = "";
+    priority.value = "";
+
+    addModal.close();
+});
+
+createBtnAM.addEventListener("click", (e) => {
     const name = document.querySelector(".add-modal__form__name-input");
     const dueDate = document.querySelector(".add-modal__form__due-date-input");
     const priority = document.querySelector(".add-modal__form__priority-input");
@@ -55,5 +77,38 @@ createBtn.addEventListener("click", (e) => {
         addModal.close();
     }
 });
+
+// document.addEventListener("edit", (e) => {
+//     console.log("HELLO?!")
+//     console.log(e.detail.index)
+// })
+
+saveBtnEM.addEventListener("click", (e) => {
+    const name = document.querySelector(".edit-modal__form__name-input");
+    const dueDate = document.querySelector(".edit-modal__form__due-date-input");
+    const priority = document.querySelector(".edit-modal__form__priority-input");
+    const todosContainer = document.querySelector(".todos");
+    
+    e.preventDefault();
+    console.log(e.target)
+
+    if (name.value !== "" && dueDate.value !== "" && priority.value !== "") {
+        // console.log(index)
+        // Quick check for values and types (remove later)
+        // if (localStorage.getItem("todos") === null)
+        // name.value = "";
+        // dueDate.value = "";
+        // priority.value = "";
+        // const addModal = document.querySelector(".add-modal");
+        // addModal.close();
+    }
+})
+
+saveBtnEM.addEventListener("edit", (e) => {
+    e.preventDefault();
+    console.log(e.detail)
+    
+    
+})
 
 loadTodos();
