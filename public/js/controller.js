@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 import { createTodoCard } from "./todos.js";
 
@@ -6,40 +6,45 @@ export const createTodo = (name, dueDate, priority) => {
     let todos = JSON.parse(localStorage.getItem("todos"));
     if (todos === null) todos = [];
 
-    todos.push({name: name, dueDate: dueDate, priority: priority})
+    todos.push({ name: name, dueDate: dueDate, priority: priority });
 
-    localStorage.setItem("todos", JSON.stringify(todos))
+    localStorage.setItem("todos", JSON.stringify(todos));
     render();
-}
+};
 
 export const getTodo = (index) => {
     let todos = JSON.parse(localStorage.getItem("todos"));
     if (todos === null) todos = [];
 
-    let todo = todos[index]
-    console.log(todo)
+    let todo = todos[index];
     return todo;
-}
+};
+
+export const getAllTodos = () => {
+    let todos = JSON.parse(localStorage.getItem("todos"));
+    if (todos === null) todos = [];
+
+    return todos;
+};
 
 export const updateTodo = (index, name, dueDate, priority) => {
     let todos = JSON.parse(localStorage.getItem("todos"));
     if (todos === null) todos = [];
 
-    console.log("ODO: ", todos[index])
     let todo;
     for (let i = 0; i < todos.length; i++) {
         if (i === index) {
-            todo = todos[i]
+            todo = todos[i];
         }
     }
 
     todo.name = name;
     todo.dueDate = dueDate;
-    todo.priority = priority
+    todo.priority = priority;
 
-    localStorage.setItem("todos", JSON.stringify(todos))
+    localStorage.setItem("todos", JSON.stringify(todos));
     render();
-}
+};
 
 export const deleteTodo = (index) => {
     let todos = JSON.parse(localStorage.getItem("todos"));
@@ -47,9 +52,9 @@ export const deleteTodo = (index) => {
 
     todos.splice(index, 1);
 
-    localStorage.setItem("todos", JSON.stringify(todos))
+    localStorage.setItem("todos", JSON.stringify(todos));
     render();
-}
+};
 
 export const render = () => {
     const todosElement = document.querySelector(".todos");
@@ -58,7 +63,7 @@ export const render = () => {
     let todos = JSON.parse(localStorage.getItem("todos"));
     if (todos === null) todos = [];
 
-    todos.forEach(element => {
-        createTodoCard(element.name, element.dueDate, element.priority)
+    todos.forEach((element) => {
+        createTodoCard(element.name, element.dueDate, element.priority);
     });
-}
+};

@@ -33,6 +33,23 @@
     font-weight: bolder;
 }
 
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+     background-color: rgb(160, 160, 227);
+    /* color: var(--txt-clr-light); */
+    /* gap: 1rem; */
+}
+
+.filter-container__filter {
+    padding: 0.5rem;
+    border: 0.25rem solid var(--bg-clr-dark);
+    min-width: 50dvw;
+    max-width: 75%;
+}
+
 .todos {
     display: flex;
     flex-direction: column;
@@ -178,4 +195,8 @@
     border: none;
     border-radius: 0.25rem;
     padding: 0.5rem;
+}
+
+.hidden {
+    display: none;
 }
