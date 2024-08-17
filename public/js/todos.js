@@ -1,3 +1,7 @@
+"use strict";
+
+import { deleteTodo } from "./controller.js";
+
 const createPriorityPill = (priority) => {
     const pill = document.createElement("div");
     pill.classList.add("todo__priority-pill");
@@ -56,6 +60,8 @@ const createBtns = () => {
     editBtn.innerText = "Edit";
 
     editBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
         const todosContainer = document.querySelector(".todos");
         let elementToEdited = e.target.parentElement.parentElement;
 
@@ -64,36 +70,17 @@ const createBtns = () => {
             (card) => card === elementToEdited
         );
 
-
-        // todo
-        // Opens up dialog
-        // editBtn.dispatchEvent(editEvent)
-        const saveBtn = document.querySelector(".edit-modal__save-btn")
-        const editModal = document.querySelector(".edit-modal")
-        let todos = JSON.parse(localStorage.getItem("todos"))
-        let todo = todos[index];
-        
-        const name = document.querySelector(".edit-modal__form__name-input")
-        const date = document.querySelector(".edit-modal__form__due-date-input")
-        const priority = document.querySelector(".edit-modal__form__priority-input")    
-        
-        name.value = todo.name
-        date.value = todo.dueDate;
-        priority.value = todo.priority;
-
         const editEvent = new CustomEvent("edit", {
             bubbles: true,
-            // detail: {index: index}
-        })
-        console.log(editEvent)
-        saveBtn.dispatchEvent(editEvent)
-        editModal.showModal();
+            detail: {
+                index: index,
+                name: elementToEdited.name,
+                dueDate: elementToEdited.dueDate,
+                priority: elementToEdited.priority,
+            },
+        });
 
-        // let todos = JSON.parse(localStorage.getItem("todos"))
-        // todos.splice(index, 1)
-        // localStorage.setItem("todos", JSON.stringify(todos))
-
-        // todosContainer.removeChild(elementToBeRemoved)
+        editBtn.dispatchEvent(editEvent);
     });
 
     const deleteBtn = document.createElement("button");
@@ -109,13 +96,7 @@ const createBtns = () => {
             (card) => card === elementToBeRemoved
         );
 
-        console.log(index);
-
-        let todos = JSON.parse(localStorage.getItem("todos"))
-        todos.splice(index, 1)
-        localStorage.setItem("todos", JSON.stringify(todos))
-
-        todosContainer.removeChild(elementToBeRemoved)
+        deleteTodo(index);
     });
 
     btnArticle.appendChild(editBtn);
@@ -125,18 +106,6 @@ const createBtns = () => {
 };
 
 export const createTodoCard = (name, date, priority, createEntry = false) => {
-    if (createEntry === true) {
-        if (localStorage.getItem("todos") === null) {
-            let todos = [];
-            todos.push({ name: name, dueDate: date, priority: priority });
-            localStorage.setItem("todos", JSON.stringify(todos));
-        } else {
-            let todos = JSON.parse(localStorage.getItem("todos"));
-            todos.push({ name: name, dueDate: date, priority: priority });
-            localStorage.setItem("todos", JSON.stringify(todos));
-        }
-    }
-
     const todoCard = document.createElement("article");
     todoCard.classList.add("todo");
 
@@ -149,20 +118,3 @@ export const createTodoCard = (name, date, priority, createEntry = false) => {
     const todosContainer = document.querySelector(".todos");
     todosContainer.appendChild(todoCard);
 };
-
-// export const editTodo = (e, index) => {
-//     const todosContainer = document.querySelector(".todos");
-//     let elementToEdited = todosContainer.children[index];
-
-//     let index = Array.prototype.findIndex.call(
-//         todosContainer.children,
-//         (card) => card === elementToEdited
-//     );
-
-//     const editEvent = new CustomEvent("edit", {
-//         bubbles: true,
-//         detail: {index: index}
-//     })
-//     console.log(editEvent)
-//     saveBtn.dispatchEvent(editEvent)
-// }

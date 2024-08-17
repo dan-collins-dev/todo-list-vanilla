@@ -1,114 +1,76 @@
 "use strict";
 
-import { createTodoCard} from "./todos.js";
+import {createTodo, getTodo, render} from "./controller.js"
+import { updateTodo } from "./controller.js";
 
-const addBtn = document.querySelector(".header__add-btn");
-const cancelBtnAM = document.querySelector(".add-modal__cancel-btn");
-const createBtnAM = document.querySelector(".add-modal__create-btn");
-const cancelBtnEM = document.querySelector(".edit-modal__cancel-btn");
-const saveBtnEM = document.querySelector(".edit-modal__save-btn")
+const addBtn = document.querySelector(".header__add-btn")
+const addModal = document.querySelector(".add-modal")
+const addCancelBtn = document.querySelector(".add-modal__cancel-btn")
+const addModalCreateBtn = document.querySelector(".add-modal__create-btn")
+
 const editModal = document.querySelector(".edit-modal")
+const editSaveBtn = document.querySelector(".edit-modal__save-btn")
 
-// editModal.addEventListener("edit", (e) => {
-//     console.log("You")
-//     editModal.showModal();
-// })
+let currentItem
+let currentIndex
 
-const loadTodos = () => {
-    if (localStorage.getItem("todos") === null) {
-        return;
-    }
+document.addEventListener("edit", (e) => {
+    const name = document.querySelector(".edit-modal__form__name-input")
+    const date = document.querySelector(".edit-modal__form__due-date-input")
+    const priority = document.querySelector(".edit-modal__form__priority-input")
+    
+    currentIndex = e.detail.index
+    currentItem = getTodo(e.detail.index)
+    name.value = currentItem.name;
+    date.value = currentItem.dueDate;
+    priority.value = currentItem.priority
+    editModal.showModal();
+})
 
-    let todos = JSON.parse(localStorage.getItem("todos"));
-    todos.forEach((todo) => {
-        createTodoCard(todo.name, todo.dueDate, todo.priority);
-    });
-};
 
-addBtn.addEventListener("click", (e) => {
-    const addModal = document.querySelector(".add-modal");
-    addModal.showModal();
-});
-
-cancelBtnAM.addEventListener("click", (e) => {
-    e.preventDefault();
-    const name = document.querySelector(".add-modal__form__name-input");
-    const dueDate = document.querySelector(".add-modal__form__due-date-input");
-    const priority = document.querySelector(".add-modal__form__priority-input");
-    const addModal = document.querySelector(".add-modal");
-
+addCancelBtn.addEventListener("click", (e) => {
+    const name = document.querySelector(".add-modal__form__name-input")
+    const date = document.querySelector(".add-modal__form__due-date-input")
+    const priority = document.querySelector(".add-modal__form__priority-input")
     name.value = "";
-    dueDate.value = "";
+    date.value = "";
     priority.value = "";
-
-    addModal.close();
-});
-
-cancelBtnEM.addEventListener("click", (e) => {
     e.preventDefault();
-    const name = document.querySelector(".add-modal__form__name-input");
-    const dueDate = document.querySelector(".add-modal__form__due-date-input");
-    const priority = document.querySelector(".add-modal__form__priority-input");
-    const addModal = document.querySelector(".add-modal");
-
-    name.value = "";
-    dueDate.value = "";
-    priority.value = "";
-
     addModal.close();
-});
+})
 
-createBtnAM.addEventListener("click", (e) => {
-    const name = document.querySelector(".add-modal__form__name-input");
-    const dueDate = document.querySelector(".add-modal__form__due-date-input");
-    const priority = document.querySelector(".add-modal__form__priority-input");
+addModalCreateBtn.addEventListener("click", (e) => {
+    const name = document.querySelector(".add-modal__form__name-input")
+    const date = document.querySelector(".add-modal__form__due-date-input")
+    const priority = document.querySelector(".add-modal__form__priority-input")
 
-    // This condition ensures that empty fields are using the built-in
-    // "required" element attribute before overriding the button default
-    // behavior
-    if (name.value !== "" && dueDate.value !== "" && priority.value !== "") {
+    if (name.value !== "" && date.value !== "" && priority.value !== "") {
         e.preventDefault();
-        // Quick check for values and types (remove later)
-        createTodoCard(name.value, dueDate.value, priority.value, true);
+        createTodo(name.value, date.value, priority.value)
+
         name.value = "";
-        dueDate.value = "";
+        date.value = "";
         priority.value = "";
         const addModal = document.querySelector(".add-modal");
         addModal.close();
     }
-});
-
-// document.addEventListener("edit", (e) => {
-//     console.log("HELLO?!")
-//     console.log(e.detail.index)
-// })
-
-saveBtnEM.addEventListener("click", (e) => {
-    const name = document.querySelector(".edit-modal__form__name-input");
-    const dueDate = document.querySelector(".edit-modal__form__due-date-input");
-    const priority = document.querySelector(".edit-modal__form__priority-input");
-    const todosContainer = document.querySelector(".todos");
-    
-    e.preventDefault();
-    console.log(e.target)
-
-    if (name.value !== "" && dueDate.value !== "" && priority.value !== "") {
-        // console.log(index)
-        // Quick check for values and types (remove later)
-        // if (localStorage.getItem("todos") === null)
-        // name.value = "";
-        // dueDate.value = "";
-        // priority.value = "";
-        // const addModal = document.querySelector(".add-modal");
-        // addModal.close();
-    }
 })
 
-saveBtnEM.addEventListener("edit", (e) => {
-    e.preventDefault();
-    console.log(e.detail)
-    
-    
+editSaveBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log(currentItem)
+    const name = document.querySelector(".edit-modal__form__name-input")
+    const date = document.querySelector(".edit-modal__form__due-date-input")
+    const priority = document.querySelector(".edit-modal__form__priority-input")
+
+    updateTodo(currentIndex, name.value, date.value, priority.value)
+    editModal.close();
 })
 
-loadTodos();
+
+addBtn.addEventListener("click", () => {
+    const addModal = document.querySelector(".add-modal");
+    addModal.showModal()
+})
+
+render()
