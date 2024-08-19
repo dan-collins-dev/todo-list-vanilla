@@ -38,7 +38,7 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-     background-color: rgb(160, 160, 227);
+    background-color: rgb(160, 160, 227);
     /* color: var(--txt-clr-light); */
     /* gap: 1rem; */
 }
@@ -130,17 +130,20 @@
     font-weight: bolder;
 }
 
-.add-modal, .edit-modal {
+.add-modal,
+.edit-modal {
     border: none;
     padding: 0;
     border-radius: 0.25rem;
 }
 
-.add-modal::backdrop, .edit-modal::backdrop {
+.add-modal::backdrop,
+.edit-modal::backdrop {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.add-modal__header__title, .edit-modal__header__title {
+.add-modal__header__title,
+.edit-modal__header__title {
     background-color: blue;
     padding: 1rem 0;
     color: white;
@@ -148,32 +151,39 @@
     text-align: center;
 }
 
-.add-modal__form, .edit-modal__form {
+.add-modal__form,
+.edit-modal__form {
     display: flex;
     flex-direction: column;
     margin: 0.5rem 0.25rem;
 }
 
-.add-modal__form__name, .edit-modal__form__name {
+.add-modal__form__name,
+.edit-modal__form__name {
 }
 
-.add-modal__form__name-input, .edit-modal__form__name-input {
+.add-modal__form__name-input,
+.edit-modal__form__name-input {
     margin-bottom: 0.5rem;
     width: auto;
 }
 
-.add-modal__form__due-date, .edit-modal__form__due-date {
+.add-modal__form__due-date,
+.edit-modal__form__due-date {
 }
 
-.add-modal__form__due-date-input, .edit-modal__form__due-date-input  {
+.add-modal__form__due-date-input,
+.edit-modal__form__due-date-input {
     margin-bottom: 0.5rem;
 }
 
-.add-modal__form__priority-input, .edit-modal__form__priority-input {
+.add-modal__form__priority-input,
+.edit-modal__form__priority-input {
     margin-bottom: 0.5rem;
 }
 
-.add-modal__btn-wrapper, .edit-modal__btn-wrapper {
+.add-modal__btn-wrapper,
+.edit-modal__btn-wrapper {
     background-color: white;
     color: white;
     padding: 0.25rem;
@@ -181,7 +191,8 @@
     justify-content: space-evenly;
 }
 
-.add-modal__cancel-btn, .edit-modal__cancel-btn {
+.add-modal__cancel-btn,
+.edit-modal__cancel-btn {
     background-color: red;
     color: black;
     border: none;
@@ -189,7 +200,8 @@
     padding: 0.5rem;
 }
 
-.add-modal__create-btn, .edit-modal__save-btn {
+.add-modal__create-btn,
+.edit-modal__save-btn {
     background-color: green;
     color: white;
     border: none;
@@ -199,4 +211,116 @@
 
 .hidden {
     display: none;
+}
+
+@media (width > 320px) {
+    .header {}
+
+    .header__name {}
+
+    .header__add-btn {}
+
+    .filter-container {}
+
+    .filter-container__filter {}
+
+    .todos {}
+
+    .todo {
+        background-color: rgb(194, 190, 237);
+        display: flex;
+        flex-direction: row;
+        border: none;
+        border-radius: 0.25rem;
+        margin: 1rem 0.5rem;
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+
+    .todo__info {
+        display: flex;
+        row-gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    .todo__name {}
+
+    .todo__due-date {
+        justify-self: end;
+    }
+
+    .todo__priority {}
+
+    .todo__priority-pill {
+    }
+
+    .todo__btns {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        align-self: center;
+    }
+
+    .todos__btns__edit-btn {
+        padding: 0.5rem;
+        background-color: yellow;
+        border: none;
+        border-radius: 0.25rem;
+        font-weight: bolder;
+    }
+
+    .todos__btns__delete-btn {
+        padding: 0.5rem;
+        margin: 0.25rem 0;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: red;
+        font-weight: bolder;
+    }
+
+    .add-modal,
+    .edit-modal {}
+
+    .add-modal::backdrop,
+    .edit-modal::backdrop {}
+
+    .add-modal__header__title,
+    .edit-modal__header__title {
+    }
+
+    .add-modal__form,
+    .edit-modal__form {
+    }
+
+    .add-modal__form__name,
+    .edit-modal__form__name {
+    }
+
+    .add-modal__form__name-input,
+    .edit-modal__form__name-input {}
+
+    .add-modal__form__due-date,
+    .edit-modal__form__due-date {
+    }
+
+    .add-modal__form__due-date-input,
+    .edit-modal__form__due-date-input {}
+
+    .add-modal__form__priority-input,
+    .edit-modal__form__priority-input {}
+
+    .add-modal__btn-wrapper,
+    .edit-modal__btn-wrapper {
+        background-color: white;
+        color: white;
+        padding: 0.25rem;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .add-modal__cancel-btn,
+    .edit-modal__cancel-btn {}
+
+    .add-modal__create-btn,
+    .edit-modal__save-btn {}
 }
