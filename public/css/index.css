@@ -1,3 +1,11 @@
+:root {
+    --header-color: white;
+    --header-bg-color: blue;
+    --create-color: white;
+    --create-bg-color: green;
+    --filter-bg-color: hsl(217, 100%, 61%);
+}
+
 @font-face {
     font-family: "Ubuntu";
     src: url(../assets/Ubuntu-Regular.ttf);
@@ -14,8 +22,8 @@
 .header {
     padding: 1rem 0.5rem;
     display: flex;
-    background-color: blue;
-    color: white;
+    background-color: var(--header-bg-color);
+    color: var(--header-color);
     align-items: center;
 }
 
@@ -28,9 +36,10 @@
     padding: 0.5rem;
     border: none;
     border-radius: 0.25rem;
-    background-color: green;
-    color: white;
+    background-color: var(--create-bg-color);
+    color: var(--create-color);
     font-weight: bolder;
+    cursor: pointer;
 }
 
 .filter-container {
@@ -38,7 +47,7 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    background-color: rgb(160, 160, 227);
+    background-color: var(--filter-bg-color);
     /* color: var(--txt-clr-light); */
     /* gap: 1rem; */
 }
@@ -61,9 +70,15 @@
     flex-direction: column;
     border: none;
     border-radius: 0.25rem;
-    margin: 1rem 0.5rem;
+    margin: 0.5rem;
     padding: 0.5rem;
-    gap: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.todo:hover {
+    scale: 25dvw;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
 }
 
 .todo__info {
@@ -73,6 +88,7 @@
 }
 
 .todo__name {
+    align-self: self-start;
 }
 
 .todo__due-date {
@@ -103,8 +119,7 @@
     background-color: rgb(250, 115, 115);
 }
 
-.todo__priority {
-}
+/* .todo__priority {} */
 
 .todo__btns {
     display: flex;
@@ -119,6 +134,7 @@
     border: none;
     border-radius: 0.25rem;
     font-weight: bolder;
+    cursor: pointer;
 }
 
 .todos__btns__delete-btn {
@@ -128,6 +144,7 @@
     border-radius: 0.25rem;
     background-color: red;
     font-weight: bolder;
+    cursor: pointer;
 }
 
 .add-modal,
@@ -158,9 +175,8 @@
     margin: 0.5rem 0.25rem;
 }
 
-.add-modal__form__name,
-.edit-modal__form__name {
-}
+/* .add-modal__form__name,
+.edit-modal__form__name {} */
 
 .add-modal__form__name-input,
 .edit-modal__form__name-input {
@@ -168,9 +184,8 @@
     width: auto;
 }
 
-.add-modal__form__due-date,
-.edit-modal__form__due-date {
-}
+/* .add-modal__form__due-date,
+.edit-modal__form__due-date {} */
 
 .add-modal__form__due-date-input,
 .edit-modal__form__due-date-input {
@@ -209,118 +224,47 @@
     padding: 0.5rem;
 }
 
-.hidden {
-    display: none;
-}
+
 
 @media (width > 320px) {
-    .header {}
-
-    .header__name {}
-
-    .header__add-btn {}
-
-    .filter-container {}
-
-    .filter-container__filter {}
-
-    .todos {}
 
     .todo {
-        background-color: rgb(194, 190, 237);
-        display: flex;
         flex-direction: row;
-        border: none;
-        border-radius: 0.25rem;
-        margin: 1rem 0.5rem;
-        padding: 0.5rem;
-        gap: 1rem;
     }
 
     .todo__info {
         display: flex;
-        row-gap: 0.5rem;
         flex-direction: column;
-    }
-
-    .todo__name {}
-
-    .todo__due-date {
-        justify-self: end;
-    }
-
-    .todo__priority {}
-
-    .todo__priority-pill {
     }
 
     .todo__btns {
-        display: flex;
-        flex-direction: column;
         margin-left: auto;
-        align-self: center;
     }
+}
 
-    .todos__btns__edit-btn {
-        padding: 0.5rem;
-        background-color: yellow;
-        border: none;
-        border-radius: 0.25rem;
-        font-weight: bolder;
+@media (width > 425px) {
+    .todos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
+}
 
-    .todos__btns__delete-btn {
-        padding: 0.5rem;
-        margin: 0.25rem 0;
-        border: none;
-        border-radius: 0.25rem;
-        background-color: red;
-        font-weight: bolder;
+@media (width > 768px) {
+    .todos {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;   
     }
+}
 
-    .add-modal,
-    .edit-modal {}
-
-    .add-modal::backdrop,
-    .edit-modal::backdrop {}
-
-    .add-modal__header__title,
-    .edit-modal__header__title {
+@media (width > 1024px) {
+    .todos {
+        margin: 0 auto;
+        text-align: center;
+        max-width: 1024px;
     }
+}
 
-    .add-modal__form,
-    .edit-modal__form {
-    }
-
-    .add-modal__form__name,
-    .edit-modal__form__name {
-    }
-
-    .add-modal__form__name-input,
-    .edit-modal__form__name-input {}
-
-    .add-modal__form__due-date,
-    .edit-modal__form__due-date {
-    }
-
-    .add-modal__form__due-date-input,
-    .edit-modal__form__due-date-input {}
-
-    .add-modal__form__priority-input,
-    .edit-modal__form__priority-input {}
-
-    .add-modal__btn-wrapper,
-    .edit-modal__btn-wrapper {
-        background-color: white;
-        color: white;
-        padding: 0.25rem;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .add-modal__cancel-btn,
-    .edit-modal__cancel-btn {}
-
-    .add-modal__create-btn,
-    .edit-modal__save-btn {}
+/* =========== Utilty Class ============== */
+.hidden {
+    display: none;
 }
