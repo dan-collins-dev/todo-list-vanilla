@@ -8,6 +8,7 @@ const addCancelBtn = document.querySelector(".add-modal__cancel-btn");
 const addModalCreateBtn = document.querySelector(".add-modal__create-btn");
 
 const editModal = document.querySelector(".edit-modal");
+const editCancelBtn = document.querySelector(".edit-modal__cancel-btn");
 const editSaveBtn = document.querySelector(".edit-modal__save-btn");
 
 const todoFilter = document.querySelector(".filter-container__filter");
@@ -67,6 +68,17 @@ editSaveBtn.addEventListener("click", (e) => {
     );
 
     updateTodo(currentIndex, name.value, date.value, priority.value);
+    editModal.close();
+});
+
+editCancelBtn.addEventListener("click", (e) => {
+    const name = document.querySelector(".add-modal__form__name-input");
+    const date = document.querySelector(".add-modal__form__due-date-input");
+    const priority = document.querySelector(".add-modal__form__priority-input");
+    name.value = "";
+    date.value = "";
+    priority.value = "";
+    e.preventDefault();
     editModal.close();
 });
 
