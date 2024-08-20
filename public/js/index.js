@@ -60,15 +60,19 @@ addModalCreateBtn.addEventListener("click", (e) => {
 });
 
 editSaveBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const name = document.querySelector(".edit-modal__form__name-input");
     const date = document.querySelector(".edit-modal__form__due-date-input");
     const priority = document.querySelector(
         ".edit-modal__form__priority-input"
     );
 
-    updateTodo(currentIndex, name.value, date.value, priority.value);
-    editModal.close();
+    if (name.value !== "" && date.value !== "" && priority.value !== "") {
+        e.preventDefault();
+        updateTodo(currentIndex, name.value, date.value, priority.value);
+        const editModal = document.querySelector(".edit-modal");
+        editModal.close();
+    }
 });
 
 editCancelBtn.addEventListener("click", (e) => {
